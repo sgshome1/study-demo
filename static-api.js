@@ -478,12 +478,8 @@
   /* ---------------- 演示标识与样式 ---------------- */
   function injectUI() {
     var css = document.createElement('style');
-    css.textContent = '.demoph{display:inline-block;padding:0 8px;margin:0 2px;border-radius:6px;background:rgba(120,120,128,.14);color:#6E6E73;font-size:12px;line-height:20px;font-style:normal}.demo-tag{position:fixed;left:14px;bottom:16px;z-index:9999;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 6px 20px rgba(16,24,40,.18);font-size:12px;color:#52525A;pointer-events:none}';
+    css.textContent = '.demoph{display:inline-block;padding:0 8px;margin:0 2px;border-radius:6px;background:rgba(120,120,128,.14);color:#6E6E73;font-size:12px;line-height:20px;font-style:normal}';
     document.head.appendChild(css);
-    var tag = document.createElement('div');
-    tag.className = 'demo-tag';
-    tag.textContent = '在线演示版 · 记录只保存在你的浏览器里';
-    document.body.appendChild(tag);
     var tries = 0;
     var t = setInterval(function () {
       var box = document.querySelector('.login-box');
