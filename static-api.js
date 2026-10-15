@@ -167,7 +167,7 @@
   /* ---------------- 接口路由 ---------------- */
   async function handle(path, b) {
     await bootstrap();
-    var C = catIdx;
+    var C = await catalog();
 
     if (path === '/ping') return ok({ build: 1, title: '智能学习系统（在线演示版）' });
     if (path === '/login') {
