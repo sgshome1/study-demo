@@ -14,16 +14,17 @@
         options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
       };
       (function () {
-        var s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-        s.async = true;
-        s.onerror = function () {
-          var t = document.createElement("script");
-          t.src = "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js";
-          t.async = true;
-          document.head.appendChild(t);
-        };
-        document.head.appendChild(s);
+        var srcs = ["./mathjax/tex-mml-chtml.js", "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js", "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"];
+        var i = 0;
+        function load() {
+          if (i >= srcs.length) return;
+          var s = document.createElement("script");
+          s.src = srcs[i++];
+          s.async = true;
+          s.onerror = load;
+          document.head.appendChild(s);
+        }
+        load();
       })();
     </script>
     <script src="./static-api.js?v=2"></script>
